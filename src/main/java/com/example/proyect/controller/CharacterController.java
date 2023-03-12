@@ -22,17 +22,17 @@ public class CharacterController {
         this.characterRepository = characterRepository;
     }
 
-    @GetMapping("/character")
+    @GetMapping("/characters")
+    //Encontrar todos los pj
     public List<Character> findAll() {
         return characterRepository.findAll();
     }
 
-    @GetMapping("/character/{id}")
+    @GetMapping("/characters/{id}") //encontrar pj por ID
     @ApiOperation("Buscar un personaje por clave primaria id Long")
     public ResponseEntity<Character> findOneById(@ApiParam("Clave primaria tipo Long") @PathVariable Long id) {
 
-        Optional<Character> bookOpt = characterRepository.findById(id); // 3456546456435
-        // opcion 1
+        Optional<Character> bookOpt = characterRepository.findById(id);
         return bookOpt.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
 
     }
@@ -76,7 +76,7 @@ public class CharacterController {
 
         return ResponseEntity.noContent().build();
     }
-    @ApiIgnore // ignorar este método para que no aparezca en la documentación de la api Swagger
+    @ApiIgnore
     @DeleteMapping("/api/characters")
     public ResponseEntity<Character> deleteAll(){
         log.info("REST Request for delete all books");
