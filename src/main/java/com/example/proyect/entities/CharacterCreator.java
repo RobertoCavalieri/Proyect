@@ -5,7 +5,8 @@ import io.swagger.annotations.ApiModelProperty;
 @Entity
 @Table(name = "PJ")
 
-public class Character {
+
+public class CharacterCreator {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ApiModelProperty
@@ -14,17 +15,18 @@ public class Character {
     private int age;
     private String clase;
     private int level;
-    private int stats;
+    @OneToOne
+    @JoinColumn(name = "stats_id", referencedColumnName = "id")
+    private Stats stats;
 
-    public Character(Long id, String name, int age, int level, int stats) {
+    public CharacterCreator(Long id, String name, int age, int level, Stats stats) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.level = level;
-        this.stats = stats;
     }
 
-    public Character() {
+    public CharacterCreator() {
 
     }
 
@@ -68,11 +70,6 @@ public class Character {
         this.level = level;
     }
 
-    public int getStats() {
-        return stats;
+
     }
 
-    public void setStats(int stats) {
-        this.stats = stats;
-    }
-}

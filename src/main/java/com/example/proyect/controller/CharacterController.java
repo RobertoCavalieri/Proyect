@@ -1,5 +1,5 @@
 package com.example.proyect.controller;
-import com.example.proyect.entities.Character;
+import com.example.proyect.entities.CharacterCreator;
 import com.example.proyect.repository.CharacterRepository;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -24,48 +24,46 @@ public class CharacterController {
 
     @GetMapping("/characters")
     //Encontrar todos los pj
-    public List<Character> findAll() {
-        return characterRepository.findAll();
-    }
+    public List<CharacterCreator> findAll() {return characterRepository.findAll();}
 
     @GetMapping("/characters/{id}") //encontrar pj por ID
     @ApiOperation("Buscar un personaje por clave primaria id Long")
-    public ResponseEntity<Character> findOneById(@ApiParam("Clave primaria tipo Long") @PathVariable Long id) {
+    public ResponseEntity<CharacterCreator> findOneById(@ApiParam("Clave primaria tipo Long") @PathVariable Long id) {
 
-        Optional<Character> bookOpt = characterRepository.findById(id);
-        return bookOpt.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        Optional<CharacterCreator> characterOpt = characterRepository.findById(id);
+        return characterOpt.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
 
     }
-    @PostMapping("/api/characters")
-    public ResponseEntity<Character> create(@RequestBody Character book, @RequestHeader HttpHeaders headers){
+    @PostMapping("/characters")
+    public ResponseEntity<CharacterCreator> create(@RequestBody CharacterCreator characterCreator, @RequestHeader HttpHeaders headers){
         System.out.println(headers.get("User-Agent"));
-        if(book.getId() != null){
+        if(characterCreator.getId() != null){
             log.warn("trying to create a character with id");
             System.out.println("trying to create a character with id");
             return ResponseEntity.badRequest().build();
         }
-       Character result = characterRepository.save(book);
+       CharacterCreator result = characterRepository.save(characterCreator);
         return ResponseEntity.ok(result);
     }
-    @PutMapping("/api/characters")
-    public ResponseEntity<Character> update(@RequestBody Character character){
-        if(character.getId() == null ){ // si no tiene id quiere decir que sí es una creación
+    @PutMapping("/characters")
+    public ResponseEntity<CharacterCreator> update(@RequestBody CharacterCreator characterCreator){
+        if(characterCreator.getId() == null ){ // si no tiene id quiere decir que sí es una creación
             log.warn("Trying to update a non existent book");
             return ResponseEntity.badRequest().build();
         }
-        if(!characterRepository.existsById(character.getId())){
+        if(!characterRepository.existsById(characterCreator.getId())){
             log.warn("Trying to update a non existent book");
             return ResponseEntity.notFound().build();
         }
 
         // El proceso de actualización
-        Character result = characterRepository.save(character);
+        CharacterCreator result = characterRepository.save(characterCreator);
         return ResponseEntity.ok(result); // el personaje devuelto tiene una clave primaria
     }
 
     @ApiIgnore
-    @DeleteMapping("/api/characters/{id}")
-    public ResponseEntity<Character> delete(@PathVariable Long id){
+    @DeleteMapping("/characters/{id}")
+    public ResponseEntity<CharacterCreator> delete(@PathVariable Long id){
 
         if(!characterRepository.existsById(id)){
             log.warn("Trying to delete a non existent book");
@@ -77,8 +75,8 @@ public class CharacterController {
         return ResponseEntity.noContent().build();
     }
     @ApiIgnore
-    @DeleteMapping("/api/characters")
-    public ResponseEntity<Character> deleteAll(){
+    @DeleteMapping("/characters")
+    public ResponseEntity<CharacterCreator> deleteAll(){
         log.info("REST Request for delete all books");
         characterRepository.deleteAll();
         return ResponseEntity.noContent().build();
