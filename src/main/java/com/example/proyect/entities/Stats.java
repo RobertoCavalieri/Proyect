@@ -5,7 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 @Entity
-public class Stats {
+public class Stats extends CharacterCreator {
 
     protected int strength;
     protected int dexterity;
@@ -13,6 +13,7 @@ public class Stats {
     protected int intelligence;
     protected int wisdom;
     protected int charisma;
+    protected int speed;
     @OneToOne(mappedBy = "stats")
 private CharacterCreator characterCreator;
     @Id
@@ -28,6 +29,30 @@ private CharacterCreator characterCreator;
     }
 
     public Stats() {
+
+    }
+
+    @Override
+    public String toString() {
+        return "Stats:" +
+                "strength=" + strength +
+                ", dexterity=" + dexterity +
+                ", constitution=" + constitution +
+                ", intelligence=" + intelligence +
+                ", wisdom=" + wisdom +
+                ", charisma=" + charisma +
+                ", speed=" + speed + "ft"+
+                ' ';
+    }
+
+    public Stats(Long id, String name, int age, int level, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
+        super(id, name, age, level);
+        this.strength = strength;
+        this.dexterity = dexterity;
+        this.constitution = constitution;
+        this.intelligence = intelligence;
+        this.wisdom = wisdom;
+        this.charisma = charisma;
 
     }
 

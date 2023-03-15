@@ -19,7 +19,7 @@ public class CharacterCreator {
     @JoinColumn(name = "stats_id", referencedColumnName = "id")
     private Stats stats;
 
-    public CharacterCreator(Long id, String name, int age, int level, Stats stats) {
+    public CharacterCreator(Long id, String name, int age, int level) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -70,6 +70,16 @@ public class CharacterCreator {
         this.level = level;
     }
 
-
+    @Override
+    public String toString() {
+        return "CharacterCreator{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", clase='" + clase + '\'' +
+                ", level=" + level +
+                ", stats=" + stats +
+                '}';
     }
+}
 
