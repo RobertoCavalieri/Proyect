@@ -8,13 +8,11 @@ public class CharacterCreator extends IdGenerator {
     private String name;
     private int age;
     private String clase;
-    private int level;
 
-    public CharacterCreator(Long id, String name, int age, int level) {
+    public CharacterCreator(Long id, String name, int age) {
         super(id);
         this.name = name;
         this.age = age;
-        this.level = level;
     }
 
     public String getName() {
@@ -39,14 +37,6 @@ public class CharacterCreator extends IdGenerator {
 
     public void setClase(String clase) {
         this.clase = clase;
-    }
-
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
     }
 
     public CharacterCreator(Long id) {

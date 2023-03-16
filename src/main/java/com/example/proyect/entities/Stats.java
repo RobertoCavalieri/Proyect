@@ -2,8 +2,7 @@ package com.example.proyect.entities;
 
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+
 @Entity
 public class Stats extends CharacterCreator {
 
@@ -20,8 +19,8 @@ public class Stats extends CharacterCreator {
 
     }
 
-    public Stats(Long id, String name, int age, int level, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
-        super(id, name, age, level);
+    public Stats(Long id, String name, int age, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
+        super(id, name, age);
         this.strength = strength;
         this.dexterity = dexterity;
         this.constitution = constitution;
@@ -31,7 +30,7 @@ public class Stats extends CharacterCreator {
     }
 
     public Stats(Long id, String name, int age, int level, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int speed) {
-        super(id, name, age, level);
+        super(id, name, age);
         this.strength = strength;
         this.dexterity = dexterity;
         this.constitution = constitution;
