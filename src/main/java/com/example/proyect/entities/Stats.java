@@ -14,35 +14,10 @@ public class Stats extends CharacterCreator {
     protected int wisdom;
     protected int charisma;
     protected int speed;
-    @OneToOne(mappedBy = "stats")
-private CharacterCreator characterCreator;
-    @Id
-    private Long id;
 
-    public Stats(int strenght, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
-        this.strength = strenght;
-        this.dexterity = dexterity;
-        this.constitution = constitution;
-        this.intelligence = intelligence;
-        this.wisdom = wisdom;
-        this.charisma = charisma;
-    }
 
     public Stats() {
 
-    }
-
-    @Override
-    public String toString() {
-        return "Stats:" +
-                "strength=" + strength +
-                ", dexterity=" + dexterity +
-                ", constitution=" + constitution +
-                ", intelligence=" + intelligence +
-                ", wisdom=" + wisdom +
-                ", charisma=" + charisma +
-                ", speed=" + speed + "ft"+
-                ' ';
     }
 
     public Stats(Long id, String name, int age, int level, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
@@ -53,7 +28,17 @@ private CharacterCreator characterCreator;
         this.intelligence = intelligence;
         this.wisdom = wisdom;
         this.charisma = charisma;
+    }
 
+    public Stats(Long id, String name, int age, int level, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int speed) {
+        super(id, name, age, level);
+        this.strength = strength;
+        this.dexterity = dexterity;
+        this.constitution = constitution;
+        this.intelligence = intelligence;
+        this.wisdom = wisdom;
+        this.charisma = charisma;
+        this.speed = speed;
     }
 
     public int getStrength() {
@@ -104,11 +89,16 @@ private CharacterCreator characterCreator;
         this.charisma = charisma;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
+    @Override
+    public String toString() {
+        return "Stats" +
+                "strength=" + strength +
+                ", dexterity=" + dexterity +
+                ", constitution=" + constitution +
+                ", intelligence=" + intelligence +
+                ", wisdom=" + wisdom +
+                ", charisma=" + charisma +
+                ", speed=" + speed +
+                ' ';
     }
 }

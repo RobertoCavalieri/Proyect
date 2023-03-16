@@ -17,8 +17,22 @@ public class Human extends Stats {
         this. charisma ++;
         this.constitution ++;
         this.dexterity ++;
-        this.speed = 30;
+        this.speed += 30;
     }
+
+    @Override
+    public String toString() {
+        return "Human " +
+                "strength=" + strength +
+                ", dexterity=" + dexterity +
+                ", constitution=" + constitution +
+                ", intelligence=" + intelligence +
+                ", wisdom=" + wisdom +
+                ", charisma=" + charisma +
+                ", speed=" + speed +
+                ' ';
+    }
+
     public Human() {
 
     }

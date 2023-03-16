@@ -1,5 +1,6 @@
 package com.example.proyect.controller;
 import com.example.proyect.entities.CharacterCreator;
+import com.example.proyect.entities.races.Human;
 import com.example.proyect.repository.CharacterRepository;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -35,14 +36,14 @@ public class CharacterController {
 
     }
     @PostMapping("/characters")
-    public ResponseEntity<CharacterCreator> create(@RequestBody CharacterCreator characterCreator, @RequestHeader HttpHeaders headers){
+    public ResponseEntity<Human> create(@RequestBody Human characterCreator, @RequestHeader HttpHeaders headers){
         System.out.println(headers.get("User-Agent"));
         if(characterCreator.getId() != null){
             log.warn("trying to create a character with id");
             System.out.println("trying to create a character with id");
             return ResponseEntity.badRequest().build();
         }
-       CharacterCreator result = characterRepository.save(characterCreator);
+        Human result = characterRepository.save(characterCreator);
         return ResponseEntity.ok(result);
     }
     @PutMapping("/characters")

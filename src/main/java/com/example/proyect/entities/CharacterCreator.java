@@ -1,41 +1,20 @@
 package com.example.proyect.entities;
 
 import jakarta.persistence.*;
-import io.swagger.annotations.ApiModelProperty;
+
 @Entity
-@Table(name = "PJ")
+public class CharacterCreator extends IdGenerator {
 
-
-public class CharacterCreator {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @ApiModelProperty
-    private Long id;
     private String name;
     private int age;
     private String clase;
     private int level;
-    @OneToOne
-    @JoinColumn(name = "stats_id", referencedColumnName = "id")
-    private Stats stats;
 
     public CharacterCreator(Long id, String name, int age, int level) {
-        this.id = id;
+        super(id);
         this.name = name;
         this.age = age;
         this.level = level;
-    }
-
-    public CharacterCreator() {
-
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -59,7 +38,7 @@ public class CharacterCreator {
     }
 
     public void setClase(String clase) {
-        this.clase = "Brujo";
+        this.clase = clase;
     }
 
     public int getLevel() {
@@ -70,16 +49,12 @@ public class CharacterCreator {
         this.level = level;
     }
 
-    @Override
-    public String toString() {
-        return "CharacterCreator{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", clase='" + clase + '\'' +
-                ", level=" + level +
-                ", stats=" + stats +
-                '}';
+    public CharacterCreator(Long id) {
+        super(id);
+    }
+
+    public CharacterCreator() {
+        super();
     }
 }
 
