@@ -12,5 +12,7 @@ public class Halfling extends Stats {
         this.dexterity += 2;
     }
     public Halfling() {
+        this.dexterity += 2;
+
     }
 }

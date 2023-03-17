@@ -10,7 +10,18 @@ public class WoodElf extends Elf {
         this.wisdom ++;
         this.speed = 35;
     }
-
+    @Override
+    public String toString() {
+        return "Race: Wood Elf" + ", name = " + getName() + ", age = " + getAge() +
+                ", strength=" + strength +
+                ", dexterity=" + dexterity +
+                ", constitution=" + constitution +
+                ", intelligence=" + intelligence +
+                ", wisdom=" + wisdom +
+                ", charisma=" + charisma +
+                ", speed=" + speed +
+                " ";
+    }
     public WoodElf() {
     }
 }

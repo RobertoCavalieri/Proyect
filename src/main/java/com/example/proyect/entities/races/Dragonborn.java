@@ -1,5 +1,6 @@
 package com.example.proyect.entities.races;
 
+import com.example.proyect.entities.CharacterCreator;
 import com.example.proyect.entities.Stats;
 import jakarta.persistence.Entity;
 

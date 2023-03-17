@@ -21,24 +21,39 @@ public class Stats extends CharacterCreator {
 
     public Stats(Long id, String name, int age, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
         super(id, name, age);
+
+        if (strength <= 0) {
+            throw new IllegalArgumentException("La fuerza debe ser un número positivo");
+        }
         this.strength = strength;
+
+        if (dexterity <= 0) {
+            throw new IllegalArgumentException("La destreza debe ser un número positivo");
+        }
         this.dexterity = dexterity;
+
+        if (constitution <= 0) {
+            throw new IllegalArgumentException("La constitución debe ser un número positivo");
+        }
         this.constitution = constitution;
+
+        if (intelligence <= 0) {
+            throw new IllegalArgumentException("La inteligencia debe ser un número positivo");
+        }
         this.intelligence = intelligence;
+
+        if (wisdom <= 0) {
+            throw new IllegalArgumentException("La sabiduría debe ser un número positivo");
+        }
         this.wisdom = wisdom;
+
+        if (charisma <= 0) {
+            throw new IllegalArgumentException("El carisma debe ser un número positivo");
+        }
         this.charisma = charisma;
     }
 
-    public Stats(Long id, String name, int age, int level, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int speed) {
-        super(id, name, age);
-        this.strength = strength;
-        this.dexterity = dexterity;
-        this.constitution = constitution;
-        this.intelligence = intelligence;
-        this.wisdom = wisdom;
-        this.charisma = charisma;
-        this.speed = speed;
-    }
+
 
     public int getStrength() {
         return strength;
@@ -90,14 +105,14 @@ public class Stats extends CharacterCreator {
 
     @Override
     public String toString() {
-        return "Stats" +
-                "strength=" + strength +
+        return "Race: " + getClase() + ", name = " + getName() + ", age = " + getAge() +
+                ", strength=" + strength +
                 ", dexterity=" + dexterity +
                 ", constitution=" + constitution +
                 ", intelligence=" + intelligence +
                 ", wisdom=" + wisdom +
                 ", charisma=" + charisma +
                 ", speed=" + speed +
-                ' ';
+                " ";
     }
 }

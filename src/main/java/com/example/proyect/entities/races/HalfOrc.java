@@ -9,9 +9,12 @@ public class HalfOrc extends Stats {
         super(id, name, age, strength, dexterity, constitution, intelligence, wisdom, charisma);
         this.strength = strength +2;
         this.constitution ++;
+        setClase("Half Orc");
     }
 
-    public HalfOrc() {
 
+    public HalfOrc() {
+        this.strength = strength +2;
+        this.constitution ++;
     }
 }
