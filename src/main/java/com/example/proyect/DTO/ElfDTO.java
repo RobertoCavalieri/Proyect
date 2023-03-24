@@ -1,2 +1,6 @@
-package com.example.proyect.DTO;public class ElfDTO {
+package com.example.proyect.DTO;
+
+public class ElfDTO {
+
+
 }
