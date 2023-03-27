@@ -10,5 +10,6 @@ public interface ICharacterService {
 
     Optional<Character> getCharacterByID(Long id);
     void deleteCharacterById(Long id);
-    Character save (Character character);
+    Character saveCharacter (Character character);
+
 }
