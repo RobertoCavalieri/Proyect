@@ -31,9 +31,13 @@ public class CharacterController {
     @ApiOperation("Buscar un personaje por clave primaria id Long")
     public ResponseEntity<Character> findOneById(@ApiParam("Clave primaria tipo Long") @PathVariable Long id) {
 
-        Optional<Character> characterOpt = characterRepository.findById(id);
-        return characterOpt.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-
+            Optional<Character> characterOpt = characterRepository.findById(id);
+            return characterOpt.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        }*/
+    //encontrar pj por ID
+    @GetMapping("/characters2/{id}")
+    public ResponseEntity<?> getCharacterById(@PathVariable Long id) {
+        return ResponseEntity.ok().body(characterService.getCharacterByID(id));
     }
     @PostMapping("/characters")
     public ResponseEntity<Human> create(@RequestBody Human characterCreator, @RequestHeader HttpHeaders headers){
@@ -83,6 +87,7 @@ public class CharacterController {
         return ResponseEntity.noContent().build();
     }
 
-}
+}*/
+
 
 
