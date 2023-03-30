@@ -14,8 +14,8 @@ public class ProyectApplication {
     ApplicationContext context = SpringApplication.run(ProyectApplication.class, args);
     ICharacterRepository CharacterRepository = context.getBean(ICharacterRepository.class);
 
-    Character characterJuan = new Character(null, "Juan", 60, 5, 12, 8, 4, 12, 16, 30);
-        Character characterPedro = new Character(null, "Pedro", 60, 5, 12, 8, 4, 12, 16, 30);
+    Character characterJuan = new Character(null, "Humano", "Juan", 60, 5, 12, 8, 4, 12, 16, 30);
+        Character characterPedro = new Character(null, "Humano", "Pedro", 60, 5, 12, 8, 4, 12, 16, 30);
         Character juancito = Character.builder()
                     .id(null)
                     .age(58)

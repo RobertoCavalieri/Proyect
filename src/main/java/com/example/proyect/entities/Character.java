@@ -19,6 +19,8 @@ public class Character {
     @ApiModelProperty
     private Long id;
     @Column
+    private String race;
+    @Column
     private String name;
     @Column
     private int age;

@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping
 public class CharacterController {
     private static final Logger log = LoggerFactory.getLogger(CharacterController.class);
     private CharacterRepository characterRepository;
