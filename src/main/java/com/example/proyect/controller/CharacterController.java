@@ -88,7 +88,28 @@ public class CharacterController {
         return ResponseEntity.noContent().build();
     }
 
-}*/
+    //Crear un nuevo PJ
+    @PostMapping("/characters2") //Poner MIN para que no se puedan pasar parametros menores a 1
+    public ResponseEntity<Character> saveCharacter(@RequestBody Character characterCreator, @RequestHeader HttpHeaders headers) {
+        Character result = characterService.saveCharacter(characterCreator);
+        return ResponseEntity.ok(result);
+    }
+
+    @PutMapping("/characters2/update") //Poner MIN para que no se puedan pasar parametros menores a 1
+    public ResponseEntity<Character> updateCharacter(@RequestBody Character characterCreator, @RequestHeader HttpHeaders headers) {
+        Character result = characterService.updateCharacter(characterCreator);
+        return ResponseEntity.ok(result);
+    }
+
+
+    @PostMapping("/pj")
+    public ResponseEntity<String> createPj(@RequestBody CharacterDTO characterDTO) {
+       characterService.createCharacter(characterDTO);
+        return ResponseEntity.ok("Personaje creado exitosamente");
+    }
+}
+
+
 
 
 

@@ -33,15 +33,7 @@ public class ProyectApplication {
         CharacterRepository.save(characterPedro);
         CharacterRepository.save(juancito);
         System.out.println("Heroes creados en base de datos: " + CharacterRepository.findAll().size());
-      /*  Stats stats = new Stats(null, " JOSE", 68, 6, 8, 7 , 9, 8, 7);
-        Human PJ1 = new Human(null, "Lopez", 68, 9, 15, 16, 5, 16, 19);
-        HighElf PJ2 = new HighElf(null, "Aelar", 40, 8, 1, 14, 16, 18, 8);
-        System.out.println("Datos de " + PJ1.getName() +" " + PJ1);
-        System.out.println("Datos de " + PJ2.getName() +" " + PJ2);
-        repository.save(PJ1);
-        repository.save(PJ2);
-        repository.save(stats);
-        System.out.println("Heroes creados en base de datos: " + repository.findAll().size());*/
+
 
     }
 }
