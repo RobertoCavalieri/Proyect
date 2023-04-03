@@ -1,0 +1,30 @@
+    if (strength <= 0) {
+            throw new IllegalArgumentException("La fuerza debe ser un número positivo");
+        }
+        this.strength = strength;
+
+        if (dexterity <= 0) {
+            throw new IllegalArgumentException("La destreza debe ser un número positivo");
+        }
+        this.dexterity = dexterity;
+
+        if (constitution <= 0) {
+            throw new IllegalArgumentException("La constitución debe ser un número positivo");
+        }
+        this.constitution = constitution;
+
+        if (intelligence <= 0) {
+            throw new IllegalArgumentException("La inteligencia debe ser un número positivo");
+        }
+        this.intelligence = intelligence;
+
+        if (wisdom <= 0) {
+            throw new IllegalArgumentException("La sabiduría debe ser un número positivo");
+        }
+        this.wisdom = wisdom;
+
+        if (charisma <= 0) {
+            throw new IllegalArgumentException("El carisma debe ser un número positivo");
+        }
+        this.charisma = charisma;
+    }
