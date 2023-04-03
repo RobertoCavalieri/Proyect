@@ -3,7 +3,6 @@ package com.example.proyect.service;
 import com.example.proyect.entities.Character;
 import com.example.proyect.repository.ICharacterRepository;
 import com.example.proyect.service.interfaces.ICharacterService;
-import org.hibernate.annotations.Cascade;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.example.proyect.DTO.CharacterDTO;
@@ -64,11 +63,11 @@ public class CharacterService implements ICharacterService {
         dragonborn.setName(dragonbornDto.getName());
         dragonborn.setAge(dragonbornDto.getAge());
         dragonborn.setStrength(dragonbornDto.getStrength() + 2);
-        dragonborn.setDexterity(dragonbornDto.getDexterity() );
+        dragonborn.setDexterity(dragonbornDto.getDexterity());
         dragonborn.setConstitution(dragonbornDto.getConstitution());
         dragonborn.setIntelligence(dragonbornDto.getIntelligence());
         dragonborn.setWisdom(dragonbornDto.getWisdom());
-        dragonborn.setCharisma(dragonbornDto.getCharisma() +1);
+        dragonborn.setCharisma(dragonbornDto.getCharisma() + 1);
         dragonborn.setSpeed(dragonbornDto.getSpeed());
         return null;
     }
@@ -77,9 +76,9 @@ public class CharacterService implements ICharacterService {
         dwarf.setRace(dwarfDto.getRace());
         dwarf.setName(dwarfDto.getName());
         dwarf.setAge(dwarfDto.getAge());
-        dwarf.setStrength(dwarfDto.getStrength() );
-        dwarf.setDexterity(dwarfDto.getDexterity() );
-        dwarf.setConstitution(dwarfDto.getConstitution() +2);
+        dwarf.setStrength(dwarfDto.getStrength());
+        dwarf.setDexterity(dwarfDto.getDexterity());
+        dwarf.setConstitution(dwarfDto.getConstitution() + 2);
         dwarf.setIntelligence(dwarfDto.getIntelligence());
         dwarf.setWisdom(dwarfDto.getWisdom());
         dwarf.setCharisma(dwarfDto.getCharisma());
@@ -104,51 +103,55 @@ public class CharacterService implements ICharacterService {
 
         return null;
     }
+
     public Object GnomeCreator(Character gnome, CharacterDTO gnomeDto) {
         gnome.setRace(gnomeDto.getRace());
         gnome.setName(gnomeDto.getName());
         gnome.setAge(gnomeDto.getAge());
-        gnome.setStrength(gnomeDto.getStrength() );
-        gnome.setDexterity(gnomeDto.getDexterity() );
-        gnome.setConstitution(gnomeDto.getConstitution() );
-        gnome.setIntelligence(gnomeDto.getIntelligence()+2);
+        gnome.setStrength(gnomeDto.getStrength());
+        gnome.setDexterity(gnomeDto.getDexterity());
+        gnome.setConstitution(gnomeDto.getConstitution());
+        gnome.setIntelligence(gnomeDto.getIntelligence() + 2);
         gnome.setWisdom(gnomeDto.getWisdom());
-        gnome.setCharisma(gnomeDto.getCharisma() );
+        gnome.setCharisma(gnomeDto.getCharisma());
         gnome.setSpeed(gnomeDto.getSpeed());
         return null;
     }
+
     public Object HalfElfCreator(Character halfElf, CharacterDTO halfElfDto) {
         halfElf.setRace(halfElfDto.getRace());//+1 a una estadistica aleatoria
         halfElf.setName(halfElfDto.getName());
         halfElf.setAge(halfElfDto.getAge());
-        halfElf.setStrength(halfElfDto.getStrength() );
+        halfElf.setStrength(halfElfDto.getStrength());
         halfElf.setDexterity(halfElfDto.getDexterity());
-        halfElf.setConstitution(halfElfDto.getConstitution() );
+        halfElf.setConstitution(halfElfDto.getConstitution());
         halfElf.setIntelligence(halfElfDto.getIntelligence());
         halfElf.setWisdom(halfElfDto.getWisdom());
-        halfElf.setCharisma(halfElfDto.getCharisma()+2 );
+        halfElf.setCharisma(halfElfDto.getCharisma() + 2);
         halfElf.setSpeed(halfElfDto.getSpeed());
         return null;
     }
+
     public Object HalflingCreator(Character halfling, CharacterDTO halflingDto) {
         halfling.setRace(halflingDto.getRace());
         halfling.setName(halflingDto.getName());
         halfling.setAge(halflingDto.getAge());
-        halfling.setStrength(halflingDto.getStrength() );
-        halfling.setDexterity(halflingDto.getDexterity()+2);
-        halfling.setConstitution(halflingDto.getConstitution() );
+        halfling.setStrength(halflingDto.getStrength());
+        halfling.setDexterity(halflingDto.getDexterity() + 2);
+        halfling.setConstitution(halflingDto.getConstitution());
         halfling.setIntelligence(halflingDto.getIntelligence());
         halfling.setWisdom(halflingDto.getWisdom());
-        halfling.setCharisma(halflingDto.getCharisma() );
+        halfling.setCharisma(halflingDto.getCharisma());
         halfling.setSpeed(halflingDto.getSpeed());
         return null;
     }
+
     public Object HalfOrcCreator(Character halfOrc, CharacterDTO halfOrcDto) {
         halfOrc.setRace(halfOrcDto.getRace());
         halfOrc.setName(halfOrcDto.getName());
         halfOrc.setAge(halfOrcDto.getAge());
         halfOrc.setStrength(halfOrcDto.getStrength() + 2);
-        halfOrc.setDexterity(halfOrcDto.getDexterity() );
+        halfOrc.setDexterity(halfOrcDto.getDexterity());
         halfOrc.setConstitution(halfOrcDto.getConstitution() + 1);
         halfOrc.setIntelligence(halfOrcDto.getIntelligence());
         halfOrc.setWisdom(halfOrcDto.getWisdom());
@@ -156,6 +159,7 @@ public class CharacterService implements ICharacterService {
         halfOrc.setSpeed(halfOrcDto.getSpeed());
         return null;
     }
+
     public Object HumanCreator(Character human, CharacterDTO humanDto) {
         human.setRace(humanDto.getRace());
         human.setName(humanDto.getName());
@@ -172,16 +176,17 @@ public class CharacterService implements ICharacterService {
 
         return null;
     }
+
     public Object TieflingCreator(Character tiefling, CharacterDTO tieflingDto) {
         tiefling.setRace(tieflingDto.getRace());
         tiefling.setName(tieflingDto.getName());
         tiefling.setAge(tieflingDto.getAge());
-        tiefling.setStrength(tieflingDto.getStrength() );
-        tiefling.setDexterity(tieflingDto.getDexterity()+2);
-        tiefling.setConstitution(tieflingDto.getConstitution() );
+        tiefling.setStrength(tieflingDto.getStrength());
+        tiefling.setDexterity(tieflingDto.getDexterity() + 2);
+        tiefling.setConstitution(tieflingDto.getConstitution());
         tiefling.setIntelligence(tieflingDto.getIntelligence());
         tiefling.setWisdom(tieflingDto.getWisdom());
-        tiefling.setCharisma(tieflingDto.getCharisma() );
+        tiefling.setCharisma(tieflingDto.getCharisma());
         tiefling.setSpeed(tieflingDto.getSpeed());
         return null;
     }
@@ -194,16 +199,33 @@ public class CharacterService implements ICharacterService {
             case "Dwarf" -> DwarfCreator(character, characterDto);
             case "Elf" -> ElfCreator(character, characterDto);
             case "Gnome" -> GnomeCreator(character, characterDto);
-            case "HalfElf"-> HalfElfCreator(character, characterDto);
+            case "HalfElf" -> HalfElfCreator(character, characterDto);
             case "HalfOrc" -> HalfOrcCreator(character, characterDto);
-            case "Halfling" ->HalflingCreator(character, characterDto);
+            case "Halfling" -> HalflingCreator(character, characterDto);
             case "Human" -> HumanCreator(character, characterDto);
-            case "Tiefling"-> TieflingCreator(character, characterDto);
+            case "Tiefling" -> TieflingCreator(character, characterDto);
         }
         return characterRepository.save(character);
-}
     }
 
+ public Character characterRandom(){
+        CharacterDTO characterDTO = new CharacterDTO();
+        Character randomCharacter = (Character) RandomCharacterGenerator.generateRandomCharacter(characterDTO);
+     assert randomCharacter != null;
+     return characterRepository.save(randomCharacter);
+
+ }
+
+    public Object generateARandomParty() {
+       int numCharacters = 5;
+        CharacterDTO characterDTO = new CharacterDTO();
+        for (int i = 0; i < numCharacters; i++) {
+            Character randomCharacter = (Character) RandomCharacterGenerator.generateRandomCharacter(characterDTO);
+            characterRepository.save(randomCharacter);
+        }
+        return null;
+    }
+}
 
 
 
