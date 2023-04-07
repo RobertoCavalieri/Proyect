@@ -88,24 +88,32 @@ public class CharacterController {
         return ResponseEntity.noContent().build();
     }
 
-    //Crear un nuevo PJ
-    @PostMapping("/characters2") //Poner MIN para que no se puedan pasar parametros menores a 1
-    public ResponseEntity<Character> saveCharacter(@RequestBody Character characterCreator, @RequestHeader HttpHeaders headers) {
-        Character result = characterService.saveCharacter(characterCreator);
-        return ResponseEntity.ok(result);
-    }
-
+    //Actualiza un personaje existente
     @PutMapping("/characters2/update") //Poner MIN para que no se puedan pasar parametros menores a 1
     public ResponseEntity<Character> updateCharacter(@RequestBody Character characterCreator, @RequestHeader HttpHeaders headers) {
         Character result = characterService.updateCharacter(characterCreator);
         return ResponseEntity.ok(result);
     }
 
-
-    @PostMapping("/pj")
+    //Crea un personaje
+    @PostMapping("/characters2/pj")
     public ResponseEntity<String> createPj(@RequestBody CharacterDTO characterDTO) {
        characterService.createCharacter(characterDTO);
         return ResponseEntity.ok("Personaje creado exitosamente");
+    }
+
+    // Crear un personaje aleatorio
+    @PostMapping("/characters2/random/Pj")
+    public ResponseEntity<String> randomPj() {
+        characterService.characterRandom();
+        return ResponseEntity.ok("Personaje aleatorio creado exitosamente");
+    }
+
+    //Crea un grupo de 5 personajes aleatorios
+    @PostMapping("/characters2/random/Party")
+    public ResponseEntity<String> randomParty() {
+        characterService.generateARandomParty();
+        return ResponseEntity.ok("Party aleatoria creada exitosamente");
     }
 }
 
