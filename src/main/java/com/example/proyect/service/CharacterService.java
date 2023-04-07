@@ -3,6 +3,7 @@ package com.example.proyect.service;
 import com.example.proyect.entities.Character;
 import com.example.proyect.repository.ICharacterRepository;
 import com.example.proyect.service.interfaces.ICharacterService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.example.proyect.DTO.CharacterDTO;
@@ -58,7 +59,7 @@ public class CharacterService implements ICharacterService {
         return characterRepository.save(character);
     }
 
-    public Object DragonBornCreator(Character dragonborn, CharacterDTO dragonbornDto) {
+    public Object DragonBornCreator(Character dragonborn,@Valid CharacterDTO dragonbornDto) {
         dragonborn.setRace(dragonbornDto.getRace());
         dragonborn.setName(dragonbornDto.getName());
         dragonborn.setAge(dragonbornDto.getAge());
@@ -72,7 +73,7 @@ public class CharacterService implements ICharacterService {
         return null;
     }
 
-    public Object DwarfCreator(Character dwarf, CharacterDTO dwarfDto) {
+    public Object DwarfCreator(Character dwarf, @Valid CharacterDTO dwarfDto) {
         dwarf.setRace(dwarfDto.getRace());
         dwarf.setName(dwarfDto.getName());
         dwarf.setAge(dwarfDto.getAge());
@@ -87,7 +88,7 @@ public class CharacterService implements ICharacterService {
     }
 
 
-    public Object ElfCreator(Character elf, CharacterDTO elfDto) {
+    public Object ElfCreator(Character elf,@Valid CharacterDTO elfDto) {
         elf.setRace(elfDto.getRace());
         elf.setName(elfDto.getName());
         elf.setAge(elfDto.getAge());
@@ -104,7 +105,7 @@ public class CharacterService implements ICharacterService {
         return null;
     }
 
-    public Object GnomeCreator(Character gnome, CharacterDTO gnomeDto) {
+    public Object GnomeCreator(Character gnome,@Valid CharacterDTO gnomeDto) {
         gnome.setRace(gnomeDto.getRace());
         gnome.setName(gnomeDto.getName());
         gnome.setAge(gnomeDto.getAge());
@@ -118,7 +119,7 @@ public class CharacterService implements ICharacterService {
         return null;
     }
 
-    public Object HalfElfCreator(Character halfElf, CharacterDTO halfElfDto) {
+    public Object HalfElfCreator(Character halfElf,@Valid CharacterDTO halfElfDto) {
         halfElf.setRace(halfElfDto.getRace());//+1 a una estadistica aleatoria
         halfElf.setName(halfElfDto.getName());
         halfElf.setAge(halfElfDto.getAge());
@@ -132,7 +133,7 @@ public class CharacterService implements ICharacterService {
         return null;
     }
 
-    public Object HalflingCreator(Character halfling, CharacterDTO halflingDto) {
+    public Object HalflingCreator(Character halfling,@Valid CharacterDTO halflingDto) {
         halfling.setRace(halflingDto.getRace());
         halfling.setName(halflingDto.getName());
         halfling.setAge(halflingDto.getAge());
@@ -146,7 +147,7 @@ public class CharacterService implements ICharacterService {
         return null;
     }
 
-    public Object HalfOrcCreator(Character halfOrc, CharacterDTO halfOrcDto) {
+    public Object HalfOrcCreator(Character halfOrc, @Valid CharacterDTO halfOrcDto) {
         halfOrc.setRace(halfOrcDto.getRace());
         halfOrc.setName(halfOrcDto.getName());
         halfOrc.setAge(halfOrcDto.getAge());
@@ -177,7 +178,7 @@ public class CharacterService implements ICharacterService {
         return null;
     }
 
-    public Object TieflingCreator(Character tiefling, CharacterDTO tieflingDto) {
+    public Object TieflingCreator(Character tiefling, @Valid CharacterDTO tieflingDto) {
         tiefling.setRace(tieflingDto.getRace());
         tiefling.setName(tieflingDto.getName());
         tiefling.setAge(tieflingDto.getAge());

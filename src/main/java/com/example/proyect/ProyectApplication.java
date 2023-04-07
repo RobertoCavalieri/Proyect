@@ -27,6 +27,9 @@ public class ProyectApplication {
         CharacterService partyGenerator = new CharacterService(CharacterRepository);
         List<Character> party = (List<Character>) partyGenerator.generateARandomParty();
 
+        CharacterDTO randomChar= new CharacterDTO( "random", "0", 0,0,0,0,0,0,0,0);
+
+
 
         CharacterRepository.save(randomCharacter);
 

@@ -90,14 +90,14 @@ public class CharacterController {
 
     //Actualiza un personaje existente
     @PutMapping("/characters2/update") //Poner MIN para que no se puedan pasar parametros menores a 1
-    public ResponseEntity<Character> updateCharacter(@RequestBody Character characterCreator, @RequestHeader HttpHeaders headers) {
+    public ResponseEntity<Character> updateCharacter(@RequestBody  Character characterCreator, @RequestHeader HttpHeaders headers) {
         Character result = characterService.updateCharacter(characterCreator);
         return ResponseEntity.ok(result);
     }
 
     //Crea un personaje
     @PostMapping("/characters2/pj")
-    public ResponseEntity<String> createPj(@RequestBody CharacterDTO characterDTO) {
+    public ResponseEntity<String> createPj( @Valid @RequestBody CharacterDTO characterDTO) {
        characterService.createCharacter(characterDTO);
         return ResponseEntity.ok("Personaje creado exitosamente");
     }
