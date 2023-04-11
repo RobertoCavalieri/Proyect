@@ -3,6 +3,7 @@ package com.example.proyect.service;
 import com.example.proyect.entities.Character;
 import com.example.proyect.repository.ICharacterRepository;
 import com.example.proyect.service.interfaces.ICharacterService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.example.proyect.DTO.CharacterDTO;
@@ -58,7 +59,7 @@ public class CharacterService implements ICharacterService {
         return characterRepository.save(character);
     }
 
-    public Object DragonBornCreator(Character dragonborn, CharacterDTO dragonbornDto) {
+    public void DragonBornCreator(Character dragonborn, @Valid CharacterDTO dragonbornDto) {
         dragonborn.setRace(dragonbornDto.getRace());
         dragonborn.setName(dragonbornDto.getName());
         dragonborn.setAge(dragonbornDto.getAge());
@@ -68,11 +69,10 @@ public class CharacterService implements ICharacterService {
         dragonborn.setIntelligence(dragonbornDto.getIntelligence());
         dragonborn.setWisdom(dragonbornDto.getWisdom());
         dragonborn.setCharisma(dragonbornDto.getCharisma() + 1);
-        dragonborn.setSpeed(dragonbornDto.getSpeed());
-        return null;
+        dragonborn.setSpeed(30);
     }
 
-    public Object DwarfCreator(Character dwarf, CharacterDTO dwarfDto) {
+    public void DwarfCreator(Character dwarf, @Valid CharacterDTO dwarfDto) {
         dwarf.setRace(dwarfDto.getRace());
         dwarf.setName(dwarfDto.getName());
         dwarf.setAge(dwarfDto.getAge());
@@ -82,12 +82,11 @@ public class CharacterService implements ICharacterService {
         dwarf.setIntelligence(dwarfDto.getIntelligence());
         dwarf.setWisdom(dwarfDto.getWisdom());
         dwarf.setCharisma(dwarfDto.getCharisma());
-        dwarf.setSpeed(dwarfDto.getSpeed());
-        return null;
+        dwarf.setSpeed(25);
     }
 
 
-    public Object ElfCreator(Character elf, CharacterDTO elfDto) {
+    public void ElfCreator(Character elf, @Valid CharacterDTO elfDto) {
         elf.setRace(elfDto.getRace());
         elf.setName(elfDto.getName());
         elf.setAge(elfDto.getAge());
@@ -97,14 +96,13 @@ public class CharacterService implements ICharacterService {
         elf.setIntelligence(elfDto.getIntelligence());
         elf.setWisdom(elfDto.getWisdom());
         elf.setCharisma(elfDto.getCharisma());
-        elf.setSpeed(elfDto.getSpeed());
+        elf.setSpeed(30);
         // Puedes guardar el objeto creado en la base de datos o hacer cualquier otra operación que necesites
         // ...
 
-        return null;
     }
 
-    public Object GnomeCreator(Character gnome, CharacterDTO gnomeDto) {
+    public void GnomeCreator(Character gnome, @Valid CharacterDTO gnomeDto) {
         gnome.setRace(gnomeDto.getRace());
         gnome.setName(gnomeDto.getName());
         gnome.setAge(gnomeDto.getAge());
@@ -114,11 +112,10 @@ public class CharacterService implements ICharacterService {
         gnome.setIntelligence(gnomeDto.getIntelligence() + 2);
         gnome.setWisdom(gnomeDto.getWisdom());
         gnome.setCharisma(gnomeDto.getCharisma());
-        gnome.setSpeed(gnomeDto.getSpeed());
-        return null;
+        gnome.setSpeed(25);
     }
 
-    public Object HalfElfCreator(Character halfElf, CharacterDTO halfElfDto) {
+    public void HalfElfCreator(Character halfElf, @Valid CharacterDTO halfElfDto) {
         halfElf.setRace(halfElfDto.getRace());//+1 a una estadistica aleatoria
         halfElf.setName(halfElfDto.getName());
         halfElf.setAge(halfElfDto.getAge());
@@ -128,11 +125,10 @@ public class CharacterService implements ICharacterService {
         halfElf.setIntelligence(halfElfDto.getIntelligence());
         halfElf.setWisdom(halfElfDto.getWisdom());
         halfElf.setCharisma(halfElfDto.getCharisma() + 2);
-        halfElf.setSpeed(halfElfDto.getSpeed());
-        return null;
+        halfElf.setSpeed(30);
     }
 
-    public Object HalflingCreator(Character halfling, CharacterDTO halflingDto) {
+    public void HalflingCreator(Character halfling, @Valid CharacterDTO halflingDto) {
         halfling.setRace(halflingDto.getRace());
         halfling.setName(halflingDto.getName());
         halfling.setAge(halflingDto.getAge());
@@ -142,11 +138,10 @@ public class CharacterService implements ICharacterService {
         halfling.setIntelligence(halflingDto.getIntelligence());
         halfling.setWisdom(halflingDto.getWisdom());
         halfling.setCharisma(halflingDto.getCharisma());
-        halfling.setSpeed(halflingDto.getSpeed());
-        return null;
+        halfling.setSpeed(25);
     }
 
-    public Object HalfOrcCreator(Character halfOrc, CharacterDTO halfOrcDto) {
+    public void HalfOrcCreator(Character halfOrc, @Valid CharacterDTO halfOrcDto) {
         halfOrc.setRace(halfOrcDto.getRace());
         halfOrc.setName(halfOrcDto.getName());
         halfOrc.setAge(halfOrcDto.getAge());
@@ -156,11 +151,10 @@ public class CharacterService implements ICharacterService {
         halfOrc.setIntelligence(halfOrcDto.getIntelligence());
         halfOrc.setWisdom(halfOrcDto.getWisdom());
         halfOrc.setCharisma(halfOrcDto.getCharisma());
-        halfOrc.setSpeed(halfOrcDto.getSpeed());
-        return null;
+        halfOrc.setSpeed(30);
     }
 
-    public Object HumanCreator(Character human, CharacterDTO humanDto) {
+    public void HumanCreator(Character human, CharacterDTO humanDto) {
         human.setRace(humanDto.getRace());
         human.setName(humanDto.getName());
         human.setAge(humanDto.getAge());
@@ -170,14 +164,13 @@ public class CharacterService implements ICharacterService {
         human.setIntelligence(humanDto.getIntelligence() + 1);
         human.setWisdom(humanDto.getWisdom() + 1);
         human.setCharisma(humanDto.getCharisma() + 1);
-        human.setSpeed(humanDto.getSpeed());
+        human.setSpeed(30);
         // Puedes guardar el objeto creado en la base de datos o hacer cualquier otra operación que necesites
         // ...
 
-        return null;
     }
 
-    public Object TieflingCreator(Character tiefling, CharacterDTO tieflingDto) {
+    public void TieflingCreator(Character tiefling, @Valid CharacterDTO tieflingDto) {
         tiefling.setRace(tieflingDto.getRace());
         tiefling.setName(tieflingDto.getName());
         tiefling.setAge(tieflingDto.getAge());
@@ -187,32 +180,29 @@ public class CharacterService implements ICharacterService {
         tiefling.setIntelligence(tieflingDto.getIntelligence());
         tiefling.setWisdom(tieflingDto.getWisdom());
         tiefling.setCharisma(tieflingDto.getCharisma());
-        tiefling.setSpeed(tieflingDto.getSpeed());
-        return null;
+        tiefling.setSpeed(30);
     }
 
-
-    public Character createCharacter(CharacterDTO characterDto) {
+    public void createCharacter(CharacterDTO characterDto) {
         Character character = new Character();
         switch (characterDto.getRace()) {
             case "Dragonborn" -> DragonBornCreator(character, characterDto);
             case "Dwarf" -> DwarfCreator(character, characterDto);
             case "Elf" -> ElfCreator(character, characterDto);
-            case "Gnome" -> GnomeCreator(character, characterDto);
+            case "Gnome"-> GnomeCreator(character, characterDto);
             case "HalfElf" -> HalfElfCreator(character, characterDto);
-            case "HalfOrc" -> HalfOrcCreator(character, characterDto);
+            case "HalfOrc"-> HalfOrcCreator(character, characterDto);
             case "Halfling" -> HalflingCreator(character, characterDto);
             case "Human" -> HumanCreator(character, characterDto);
             case "Tiefling" -> TieflingCreator(character, characterDto);
         }
-        return characterRepository.save(character);
+        characterRepository.save(character);
     }
 
- public Character characterRandom(){
+ public void characterRandom(){
         CharacterDTO characterDTO = new CharacterDTO();
-        Character randomCharacter = (Character) RandomCharacterGenerator.generateRandomCharacter(characterDTO);
-     assert randomCharacter != null;
-     return characterRepository.save(randomCharacter);
+        Character randomCharacter = RandomCharacterGenerator.generateRandomCharacter(characterDTO);
+     characterRepository.save(randomCharacter);
 
  }
 
@@ -220,7 +210,7 @@ public class CharacterService implements ICharacterService {
        int numCharacters = 5;
         CharacterDTO characterDTO = new CharacterDTO();
         for (int i = 0; i < numCharacters; i++) {
-            Character randomCharacter = (Character) RandomCharacterGenerator.generateRandomCharacter(characterDTO);
+            Character randomCharacter =RandomCharacterGenerator.generateRandomCharacter(characterDTO);
             characterRepository.save(randomCharacter);
         }
         return null;

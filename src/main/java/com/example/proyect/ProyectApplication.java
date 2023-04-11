@@ -28,6 +28,9 @@ public class ProyectApplication {
         List<Character> party = (List<Character>) partyGenerator.generateARandomParty();
 
 
+
+
+
         CharacterRepository.save(randomCharacter);
 
         System.out.println("Heroes creados en base de datos: " + CharacterRepository.findAll().size());
