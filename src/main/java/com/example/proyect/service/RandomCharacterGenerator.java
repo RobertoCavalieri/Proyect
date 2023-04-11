@@ -65,14 +65,5 @@ public class RandomCharacterGenerator {
         return speed;
     }
 
-    /*public Object generateRandomParty() {
-        int numCharacters = 5;
-        CharacterDTO characterDTO = new CharacterDTO();
-        for (int i = 0; i < numCharacters; i++) {
-            Character randomCharacter = (Character) RandomCharacterGenerator.generateRandomCharacter(characterDTO);
-            characterRepository.save(randomCharacter);
-        }
-        return null;
-    }*/
 }
 
