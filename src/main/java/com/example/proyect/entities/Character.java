@@ -1,9 +1,11 @@
 package com.example.proyect.entities;
 
 import io.swagger.annotations.ApiModelProperty;
-import jakarta.persistence.*;
+/*import jakarta.persistence.*;*/
 
 import lombok.*;
+
+import javax.persistence.*;
 
 @NoArgsConstructor
 @AllArgsConstructor

@@ -1,0 +1,109 @@
+{
+	"info": {
+		"_postman_id": "c1b47175-03ea-4071-a8da-c12b63c39c87",
+		"name": "ProyectoDyD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "20866331"
+	},
+	"item": [
+		{
+			"name": "Buscar todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/characters"
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar uno",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/characters/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Pedro Aznar\",\r\n    \"age\": 60,\r\n    \"strength\": 5,\r\n    \"dexterity\": 12,\r\n    \"constitution\": 8,\r\n    \"intelligence\": 4,\r\n    \"wisdom\": 15,\r\n    \"charisma\": 0,\r\n    \"speed\": 30\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/characters/update"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete por ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/characters/6"
+			},
+			"response": []
+		},
+		{
+			"name": "Create pj",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"race\": \"TIEFLING\",\r\n        \"name\": \"Pedro Aznar segundo\",\r\n        \"age\": 60,\r\n        \"strength\": 2,\r\n        \"dexterity\": 12,\r\n        \"constitution\": 8,\r\n        \"intelligence\": 4,\r\n        \"wisdom\": 12,\r\n        \"charisma\": 1\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/characters/pj"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Random pj",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/characters/random/Pj"
+			},
+			"response": []
+		},
+		{
+			"name": "Create random party",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/characters/random/Party"
+			},
+			"response": []
+		}
+	]
+}
