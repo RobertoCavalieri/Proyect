@@ -36,7 +36,8 @@ public class CharacterController {
             return characterOpt.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
         }*/
     //encontrar pj por ID
-    @GetMapping("/characters2/{id}")
+    @ApiOperation(value = "Get character by ID", notes = "Get character by ID from the database")
+    @GetMapping("/characters/{id}")
     public ResponseEntity<?> getCharacterById(@PathVariable Long id) {
         return ResponseEntity.ok().body(characterService.getCharacterByID(id));
     }
@@ -89,13 +90,15 @@ public class CharacterController {
     }
 
     //Actualiza un personaje existente
-    @PutMapping("/characters2/update") //Poner MIN para que no se puedan pasar parametros menores a 1
+    @ApiOperation(value = "Update character", notes = "Update an existing character in the database")
+    @PutMapping("/characters/update") //Poner MIN para que no se puedan pasar parametros menores a 1
     public ResponseEntity<Character> updateCharacter(@RequestBody  Character characterCreator, @RequestHeader HttpHeaders headers) {
         Character result = characterService.updateCharacter(characterCreator);
         return ResponseEntity.ok(result);
     }
 
     //Crea un personaje
+    @ApiOperation(value = "Create character", notes = "Create a new character in the database")
     @PostMapping("/characters2/pj")
     public ResponseEntity<String> createPj( @Valid @RequestBody CharacterDTO characterDTO) {
        characterService.createCharacter(characterDTO);
@@ -103,14 +106,16 @@ public class CharacterController {
     }
 
     // Crear un personaje aleatorio
-    @PostMapping("/characters2/random/Pj")
+    @ApiOperation(value = "Create random character", notes = "Create a new random character in the database")
+    @PostMapping("/characters/random/Pj")
     public ResponseEntity<String> randomPj() {
         characterService.characterRandom();
         return ResponseEntity.ok("Personaje aleatorio creado exitosamente");
     }
 
     //Crea un grupo de 5 personajes aleatorios
-    @PostMapping("/characters2/random/Party")
+    @ApiOperation(value = "Create random party of characters", notes = "Create a new random party of characters in the database")
+    @PostMapping("/characters/random/Party")
     public ResponseEntity<String> randomParty() {
         characterService.generateARandomParty();
         return ResponseEntity.ok("Party aleatoria creada exitosamente");

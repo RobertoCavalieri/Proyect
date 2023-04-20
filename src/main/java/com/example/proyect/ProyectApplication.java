@@ -10,10 +10,13 @@ import com.example.proyect.service.RandomCharacterGenerator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 
 import java.util.List;
 
 @SpringBootApplication
+@EnableSwagger2WebMvc
 public class ProyectApplication {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(ProyectApplication.class, args);
