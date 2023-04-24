@@ -19,8 +19,8 @@ import java.util.Optional;
 @RestController
 @RequestMapping
 public class CharacterController {
-    public static final Logger log = LoggerFactory.getLogger(CharacterController.class);
-    private final ICharacterRepository characterRepository;
+    public static Logger log = LoggerFactory.getLogger(CharacterController.class);
+    private ICharacterRepository characterRepository;
 
     public CharacterController(ICharacterRepository characterRepository) {
         this.characterRepository = characterRepository;
@@ -51,8 +51,8 @@ public class CharacterController {
 
     //Crea un personaje
     @ApiOperation(value = "Create character", notes = "Create a new character in the database")
-    @PostMapping("/characters2/pj")
-    public ResponseEntity<String> createPj( @Valid @RequestBody CharacterDTO characterDTO) {
+    @PostMapping("/characters/pj")
+    public ResponseEntity<String> createPj(@Valid @RequestBody CharacterDTO characterDTO) {
       characterService.createCharacter(characterDTO);
         return ResponseEntity.ok("Personaje creado exitosamente");
     }

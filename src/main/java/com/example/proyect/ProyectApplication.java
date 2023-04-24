@@ -4,9 +4,11 @@ import com.example.proyect.DTO.CharacterDTO;
 import com.example.proyect.entities.Character;
 
 
+import com.example.proyect.enums.Race;
 import com.example.proyect.repository.ICharacterRepository;
 import com.example.proyect.service.CharacterService;
 import com.example.proyect.service.RandomCharacterGenerator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -18,6 +20,9 @@ import java.util.List;
 @SpringBootApplication
 @EnableSwagger2WebMvc
 public class ProyectApplication {
+    @Autowired
+    private CharacterService characterService;
+
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(ProyectApplication.class, args);
         ICharacterRepository CharacterRepository = context.getBean(ICharacterRepository.class);

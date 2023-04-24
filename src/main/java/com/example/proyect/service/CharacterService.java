@@ -186,15 +186,15 @@ public class CharacterService implements ICharacterService {
     public void createCharacter(CharacterDTO characterDto) {
         Character character = new Character();
         switch (characterDto.getRace()) {
-            case "Dragonborn" -> DragonBornCreator(character, characterDto);
-            case "Dwarf" -> DwarfCreator(character, characterDto);
-            case "Elf" -> ElfCreator(character, characterDto);
-            case "Gnome"-> GnomeCreator(character, characterDto);
-            case "HalfElf" -> HalfElfCreator(character, characterDto);
-            case "HalfOrc"-> HalfOrcCreator(character, characterDto);
-            case "Halfling" -> HalflingCreator(character, characterDto);
-            case "Human" -> HumanCreator(character, characterDto);
-            case "Tiefling" -> TieflingCreator(character, characterDto);
+            case "DRAGONBORN" -> DragonBornCreator(character, characterDto);
+            case "DWARF" -> DwarfCreator(character, characterDto);
+            case "ELF" -> ElfCreator(character, characterDto);
+            case "GNOME"-> GnomeCreator(character, characterDto);
+            case "HALFELF" -> HalfElfCreator(character, characterDto);
+            case "HALFORC"-> HalfOrcCreator(character, characterDto);
+            case "HALFLING" -> HalflingCreator(character, characterDto);
+            case "HUMAN" -> HumanCreator(character, characterDto);
+            case "TIEFLING" -> TieflingCreator(character, characterDto);
         }
         characterRepository.save(character);
     }
