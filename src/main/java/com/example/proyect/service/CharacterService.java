@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 import com.example.proyect.DTO.CharacterDTO;
 import java.util.List;
 import java.util.Optional;
-
 import static com.example.proyect.controller.CharacterController.log;
+
 
 @Service
 public class CharacterService implements ICharacterService {
