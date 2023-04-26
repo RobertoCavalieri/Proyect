@@ -18,10 +18,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 import java.util.List;
 
 @SpringBootApplication
-@EnableSwagger2WebMvc
 public class ProyectApplication {
-    @Autowired
-    private CharacterService characterService;
 
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(ProyectApplication.class, args);

@@ -2,8 +2,11 @@ package com.example.proyect.DTO;
 
 
 import com.example.proyect.enums.Race;
+import com.example.proyect.enums.RaceDeserializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @NoArgsConstructor
@@ -12,9 +15,10 @@ import lombok.*;
 @Setter
 @Builder
 public class CharacterDTO {
-
+    @JsonDeserialize(using = RaceDeserializer.class)
     private Race race;
     @NotBlank(message= "Debe contener un nombre")
+    @NotNull
     private String name;
     @Min(value = 10,message = "Las edad no puede ser menor a 10")
     private int age;
