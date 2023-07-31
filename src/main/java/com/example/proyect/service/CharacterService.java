@@ -5,13 +5,12 @@ import com.example.proyect.enums.Race;
 import com.example.proyect.repository.ICharacterRepository;
 import com.example.proyect.service.interfaces.ICharacterService;
 import jakarta.validation.Valid;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.BeanUtils;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.example.proyect.DTO.CharacterDTO;
 import java.util.List;
-import java.util.Locale;
 import java.util.Optional;
 import static com.example.proyect.controller.CharacterController.log;
 
@@ -19,7 +18,7 @@ import static com.example.proyect.controller.CharacterController.log;
 @Service
 public class CharacterService implements ICharacterService {
 
-    private ICharacterRepository characterRepository;
+    private final ICharacterRepository characterRepository;
 
     public CharacterService(ICharacterRepository characterRepository) {
         this.characterRepository = characterRepository;
@@ -41,13 +40,10 @@ public class CharacterService implements ICharacterService {
     }
 
     @Override
-    public Character saveCharacter(Character character) {
-        if (character.getId() != null) {
+    public Character saveCharacter(@NotNull Character character) {
             log.warn("trying to create a character with id");
             System.out.println("trying to create a character with id");
             return (Character) ResponseEntity.badRequest();
-        }
-        return characterRepository.save(character);
     }
 
 
