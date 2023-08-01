@@ -38,7 +38,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:8080/characters/update"
+				"url": "http://localhost:8080/characters/update/3"
 			},
 			"response": []
 		},

@@ -47,12 +47,15 @@ public class CharacterController {
     }
 
     //Actualiza un personaje existente
-    @Operation(summary = "Update an existing character in the database")
-    @PutMapping("/update") //Poner MIN para que no se puedan pasar parametros menores a 1
-    public ResponseEntity<Character> updateCharacter(@RequestBody Character characterCreator, @RequestHeader HttpHeaders headers) {
-        Character result = characterService.updateCharacter(characterCreator);
-        return ResponseEntity.ok(result);
-    }
+        @Operation(summary = "Update an existing character in the database")
+        @PutMapping("/update/{id}") // Agrega el ID del personaje al endpoint
+        public ResponseEntity<Character> updateCharacter(@PathVariable Long id, @Valid @RequestBody CharacterDTO characterDTO, @RequestHeader HttpHeaders headers) {
+            Character result = characterService.updateCharacter(id, characterDTO);
+            if (result == null) {
+                return ResponseEntity.badRequest().build();
+            }
+            return ResponseEntity.ok(result);
+        }
 
     //Crea un personaje
     @Operation(summary = "Create a new character in the database")
@@ -71,7 +74,6 @@ public class CharacterController {
     }
 
     //Crea un grupo de 5 personajes aleatorios
-    @ApiOperation(value = "Create random party of characters", notes = "Create a new random party of characters in the database")
     @PostMapping("/random/Party")
     public ResponseEntity<String> randomParty() {
         characterService.generateARandomParty();

@@ -47,33 +47,39 @@ public class CharacterService implements ICharacterService {
     }
 
 
-    public Character updateCharacter(Character character) {
-        if (character.getId() == null) { // si no tiene id quiere decir que sí es una creación
-            log.warn("Trying to update a non existent character");
-            return (Character) ResponseEntity.badRequest();
+    public Character updateCharacter(@NotNull Long characterId, @Valid CharacterDTO characterDTO) {
+        if (characterId < 1) {
+            log.warn("ID de personaje inválido: " + characterId);
+            return null; // o puedes lanzar una excepción aquí para indicar el error
         }
-        if (!characterRepository.existsById(character.getId())) {
-            log.warn("Trying to update a non existent character");
-            return characterRepository.save(character);
+
+        Optional<Character> optionalCharacter = characterRepository.findById(characterId);
+        if (optionalCharacter.isEmpty()) {
+            log.warn("Intento de actualizar un personaje inexistente con ID: " + characterId);
+            return null; // o puedes lanzar una excepción aquí para indicar el error
         }
-        return characterRepository.save(character);
+
+        Character existingCharacter = optionalCharacter.get();
+        BeanUtils.copyProperties(characterDTO, existingCharacter, "id", "race");
+
+        return characterRepository.save(existingCharacter);
     }
 
-    public void DragonBornCreator(Character dragonborn, @Valid CharacterDTO dragonbornDto) {
+    public void DragonBornCreator(Character dragonborn, @Valid @NotNull CharacterDTO dragonbornDto) {
         dragonbornDto.setStrength(dragonbornDto.getStrength() + 2);
         dragonbornDto.setCharisma(dragonbornDto.getCharisma() + 1);
         BeanUtils.copyProperties(dragonbornDto, dragonborn);
         dragonborn.setSpeed(30);
     }
 
-    public void DwarfCreator(Character dwarf, @Valid CharacterDTO dwarfDto) {
+    public void DwarfCreator(Character dwarf, @Valid @NotNull CharacterDTO dwarfDto) {
         dwarfDto.setConstitution(dwarfDto.getConstitution() + 2);
         BeanUtils.copyProperties(dwarfDto, dwarf);
         dwarf.setSpeed(25);
     }
 
 
-    public void ElfCreator(Character elf, @Valid CharacterDTO elfDto) {
+    public void ElfCreator(Character elf, @Valid @NotNull CharacterDTO elfDto) {
         elfDto.setDexterity(elfDto.getDexterity() + 2);
         BeanUtils.copyProperties(elfDto, elf);
         elf.setSpeed(30);
@@ -147,14 +153,13 @@ public class CharacterService implements ICharacterService {
 
  }
 
-    public Object generateARandomParty() {
+    public void generateARandomParty() {
        int numCharacters = 5;
         CharacterDTO characterDTO = new CharacterDTO();
         for (int i = 0; i < numCharacters; i++) {
             Character randomCharacter =RandomCharacterGenerator.generateRandomCharacter(characterDTO);
             characterRepository.save(randomCharacter);
         }
-        return null;
     }
 }
 
