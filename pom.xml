@@ -49,7 +49,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>3.0.5</version>
+            <version>3.1.0</version>
         </dependency>
 
         <dependency>
@@ -81,6 +81,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <version>3.1.0</version>
             <scope>test</scope>
         </dependency>
 
@@ -104,8 +105,13 @@
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
-            <version>RELEASE</version>
+            <version>24.0.1</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.WangJi92</groupId>
+            <artifactId>dubbo-exception-filter-high</artifactId>
+            <version>1.0.1</version>
         </dependency>
     </dependencies>
 

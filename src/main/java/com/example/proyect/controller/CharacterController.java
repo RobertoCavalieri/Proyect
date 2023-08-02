@@ -1,6 +1,7 @@
 package com.example.proyect.controller;
 import com.example.proyect.entities.Character;
 import com.example.proyect.DTO.CharacterDTO;
+import com.example.proyect.exceptions.ExcepcionHandler;
 import com.example.proyect.service.CharacterService;
 import com.example.proyect.repository.ICharacterRepository;
 import io.swagger.annotations.ApiOperation;
@@ -47,15 +48,17 @@ public class CharacterController {
     }
 
     //Actualiza un personaje existente
-        @Operation(summary = "Update an existing character in the database")
-        @PutMapping("/update/{id}") // Agrega el ID del personaje al endpoint
-        public ResponseEntity<Character> updateCharacter(@PathVariable Long id, @Valid @RequestBody CharacterDTO characterDTO, @RequestHeader HttpHeaders headers) {
-            Character result = characterService.updateCharacter(id, characterDTO);
-            if (result == null) {
-                return ResponseEntity.badRequest().build();
+    @PutMapping("/characters/update/{characterId}")
+        public ResponseEntity<String> updateCharacter(@PathVariable Long characterId, @RequestBody CharacterDTO characterDTO) {
+            try {
+                Character updatedCharacter = characterService.updateCharacter(characterId, characterDTO);
+                return ResponseEntity.ok("Personaje actualizado exitosamente");
+            } catch (ExcepcionHandler ex) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                        .body("ID de personaje inválido");
             }
-            return ResponseEntity.ok(result);
         }
+
 
     //Crea un personaje
     @Operation(summary = "Create a new character in the database")
